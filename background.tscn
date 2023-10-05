@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3xiq4c6dun2s"]
+
+[ext_resource type="Script" path="res://Hook.gd" id="1_lpemd"]
+[ext_resource type="Texture2D" uid="uid://ch5tadbjpsl5v" path="res://sprites/hook.png" id="2_sjngp"]
+[ext_resource type="Texture2D" uid="uid://ddmdx27cq24f4" path="res://sprites/background.png" id="3_frrwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvtif"]
+size = Vector2(38, 56)
+
+[node name="Background" type="Node2D"]
+position = Vector2(582, 194)
+metadata/_edit_lock_ = true
+
+[node name="Hook" type="Node2D" parent="."]
+position = Vector2(-58, 104)
+script = ExtResource("1_lpemd")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hook"]
+position = Vector2(13, 64)
+shape = SubResource("RectangleShape2D_vvtif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hook"]
+scale = Vector2(0.452569, 0.374296)
+texture = ExtResource("2_sjngp")
+
+[node name="UI" type="Node2D" parent="."]
+position = Vector2(-6, 131)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+z_index = -10
+position = Vector2(0.999969, 1.00002)
+scale = Vector2(0.545444, 0.619732)
+texture = ExtResource("3_frrwx")

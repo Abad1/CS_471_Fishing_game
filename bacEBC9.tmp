@@ -1,20 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3xiq4c6dun2s"]
+[gd_scene load_steps=12 format=3 uid="uid://b3xiq4c6dun2s"]
 
-[ext_resource type="Script" path="res://background.gd" id="1_hyq5h"]
 [ext_resource type="Script" path="res://Hook.gd" id="1_lpemd"]
 [ext_resource type="Texture2D" uid="uid://ch5tadbjpsl5v" path="res://sprites/hook.png" id="2_sjngp"]
 [ext_resource type="Texture2D" uid="uid://ddmdx27cq24f4" path="res://sprites/background.png" id="3_frrwx"]
 [ext_resource type="Script" path="res://Spawner.gd" id="4_n0iml"]
 [ext_resource type="Script" path="res://Timer.gd" id="5_lcgyq"]
-[ext_resource type="PackedScene" uid="uid://byuvnvs0dr641" path="res://entities.tscn" id="6_yb2sc"]
+[ext_resource type="Script" path="res://Fish.gd" id="6_il1do"]
+[ext_resource type="Script" path="res://Entity.gd" id="6_v7ovr"]
+[ext_resource type="Texture2D" uid="uid://cu34i0lfdnweg" path="res://sprites/fish.png" id="7_70syx"]
+[ext_resource type="Texture2D" uid="uid://bbwkfcnowvaou" path="res://sprites/barrel.png" id="8_4puyb"]
+[ext_resource type="Script" path="res://Barrel.gd" id="9_yus6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvtif"]
 size = Vector2(38, 56)
 
 [node name="Background" type="Node2D"]
 position = Vector2(582, 194)
-script = ExtResource("1_hyq5h")
-entity_scene = null
 metadata/_edit_lock_ = true
 
 [node name="Hook" type="Node2D" parent="."]
@@ -43,11 +44,33 @@ texture = ExtResource("3_frrwx")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("4_n0iml")
-entity_scene = ExtResource("6_yb2sc")
 
 [node name="Timer" type="Timer" parent="Spawner"]
 wait_time = 3.0
 autostart = true
 script = ExtResource("5_lcgyq")
+
+[node name="Entity" type="Node2D" parent="."]
+script = ExtResource("6_v7ovr")
+
+[node name="Fish" type="Node2D" parent="Entity"]
+position = Vector2(-523, 156)
+script = ExtResource("6_il1do")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Entity/Fish"]
+texture = ExtResource("7_70syx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity/Fish"]
+
+[node name="Barrel" type="Node2D" parent="Entity"]
+position = Vector2(-523, 232)
+script = ExtResource("9_yus6w")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Entity/Barrel"]
+texture = ExtResource("8_4puyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity/Barrel"]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

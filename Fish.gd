@@ -1,0 +1,22 @@
+#Fish.gd
+
+extends Entity
+
+class_name Fish
+
+@export var speed = 400 # How fast the player will move (pixels/sec).
+var screen_size # Size of the game window.
+	
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	screen_size = get_viewport_rect().size
+	velocity = Vector2(1,0)
+	if position.x > 0:
+		velocity.x = -1
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	position += speed*velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)

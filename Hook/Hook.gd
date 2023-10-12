@@ -10,12 +10,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("Move_up"):
-		velocity.y -= 1
-	if Input.is_action_pressed("Move_down"):
-		velocity.y += 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	position.y = get_viewport().get_mouse_position().y
+
+
+
+
+func _on_body_entered(body):
+	print("AHHH")

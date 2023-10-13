@@ -25,5 +25,5 @@ func _on_timer_timeout():
 		fish.position.x = 0 #-(screen_size.x)/2 #randf_range(-500,500)
 	else:
 		fish.position.x = screen_size.x
-	fish.position.y = randf_range(220,screen_size.y - 100) #randf_range(-500,500)
+	fish.position.y = randf_range(250,screen_size.y - 100) #randf_range(-500,500)
 	add_child(fish)

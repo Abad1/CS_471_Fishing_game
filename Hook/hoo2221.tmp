@@ -1,38 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0epm1lgtv8w8"]
+[gd_scene load_steps=4 format=3 uid="uid://d0epm1lgtv8w8"]
 
 [ext_resource type="Script" path="res://Hook/Hook.gd" id="1_43jvn"]
 [ext_resource type="Texture2D" uid="uid://ch5tadbjpsl5v" path="res://sprites/hook.png" id="2_sj4eq"]
-[ext_resource type="Texture2D" uid="uid://h17qdkx3755d" path="res://sprites/fishon.png" id="3_cdji4"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6miyg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_sj4eq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_cdji4")
-}],
-"loop": false,
-"name": &"default",
-"speed": 2.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1tii"]
-size = Vector2(31, 40)
+size = Vector2(81, 84)
 
 [node name="Hook" type="Area2D" groups=["hook"]]
 priority = 1
 script = ExtResource("1_43jvn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-17, -51)
 scale = Vector2(0.452569, 0.374296)
-sprite_frames = SubResource("SpriteFrames_6miyg")
+texture = ExtResource("2_sj4eq")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.5, 16)
+position = Vector2(-3.5, 5)
 shape = SubResource("RectangleShape2D_n1tii")
 metadata/_edit_lock_ = true
 

@@ -6,13 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8wep"]
 size = Vector2(78, 30)
 
-[node name="Fish" type="RigidBody2D"]
+[node name="Fish" type="Area2D" groups=["Fish"]]
 collision_mask = 0
-mass = 1.06
-gravity_scale = 0.0
 script = ExtResource("1_2p032")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("2_ekby3")
 metadata/_edit_lock_ = true
 
@@ -23,4 +22,4 @@ metadata/_edit_lock_ = true
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

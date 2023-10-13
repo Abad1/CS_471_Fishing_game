@@ -26,7 +26,7 @@ position = Vector2(-579, -193)
 script = ExtResource("5_dcosl")
 
 [node name="Timer" type="Timer" parent="Spawner"]
-wait_time = 5.079
+wait_time = 3.0
 autostart = true
 script = ExtResource("7_xkm71")
 

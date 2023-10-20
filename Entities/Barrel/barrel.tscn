@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfphw"]
 size = Vector2(42, 56)
 
-[node name="Barrel" type="RigidBody2D"]
+[node name="Barrel" type="Area2D" groups=["Barrel"]]
 position = Vector2(0, 1)
 script = ExtResource("1_21igl")
 

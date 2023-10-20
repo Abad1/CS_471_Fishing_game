@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3xiq4c6dun2s"]
+[gd_scene load_steps=10 format=3 uid="uid://b3xiq4c6dun2s"]
 
 [ext_resource type="Script" path="res://Background/background.gd" id="1_aikqe"]
+[ext_resource type="Texture2D" uid="uid://c8a7fqycn7q5d" path="res://sprites/background2.png" id="3_go8mc"]
 [ext_resource type="Texture2D" uid="uid://ddmdx27cq24f4" path="res://sprites/background.png" id="4_bjrbk"]
 [ext_resource type="Script" path="res://Background/Spawner.gd" id="5_dcosl"]
 [ext_resource type="Script" path="res://Background/Timer.gd" id="7_xkm71"]
+
+[sub_resource type="SystemFont" id="SystemFont_yx8m1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qb56i"]
+font = SubResource("SystemFont_yx8m1")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_mqf2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_44m4w"]
+font = SubResource("SystemFont_mqf2q")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [node name="Background" type="Node2D"]
 position = Vector2(582, 194)
@@ -15,11 +30,34 @@ position = Vector2(-6, 131)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
+[node name="Background" type="Sprite2D" parent="UI"]
 z_index = -10
 position = Vector2(0.999969, 1.00002)
 scale = Vector2(0.545444, 0.619732)
 texture = ExtResource("4_bjrbk")
+
+[node name="Background Overlay" type="Sprite2D" parent="UI"]
+visibility_layer = 543
+z_index = 4
+position = Vector2(1, 1)
+scale = Vector2(0.545, 0.62)
+texture = ExtResource("3_go8mc")
+
+[node name="Score" type="Label" parent="UI"]
+z_index = 9
+offset_left = -553.0
+offset_top = -301.0
+offset_right = -447.0
+offset_bottom = -256.0
+label_settings = SubResource("LabelSettings_qb56i")
+
+[node name="Bait" type="Label" parent="UI"]
+z_index = 9
+offset_left = -537.0
+offset_top = -224.0
+offset_right = -497.0
+offset_bottom = -201.0
+label_settings = SubResource("LabelSettings_44m4w")
 
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2(-579, -193)

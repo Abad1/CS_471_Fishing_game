@@ -22,14 +22,14 @@ animations = [{
 size = Vector2(31, 40)
 
 [node name="Hook" type="Area2D" groups=["hook"]]
+visibility_layer = 2
 priority = 1
 script = ExtResource("1_43jvn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-17, -51)
-scale = Vector2(0.452569, 0.374296)
+position = Vector2(7, -341)
+scale = Vector2(0.115059, 0.10477)
 sprite_frames = SubResource("SpriteFrames_6miyg")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6.5, 16)

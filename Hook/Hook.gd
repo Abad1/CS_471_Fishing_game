@@ -14,26 +14,30 @@ func _ready():
 func _process(delta):
 
 	var pixel_shift = 200 # 200 Pixel constant for aligning fishhook
-	position.x = -45 #TODO: Automatically adjust to area
+	position.x = -60 #TODO: Automatically adjust to area #-135 450
 	position.y = get_viewport().get_mouse_position().y - pixel_shift
+	position.y = clamp(position.y,-135,450)
+	
 	if fishOn == true:
 		$AnimatedSprite2D.frame = 1
-		if position.y <= 20: #TODO: Look at setting a area for hook to pass instead of hardcode
+		if position.y <= -30: #TODO: Look at setting a area for hook to pass instead of hardcode
 			fishOn = false
 			score.emit()
-			#$AnimatedSprite2D.frame = 0
 	else:
 		$AnimatedSprite2D.frame = 0
 
 func _on_area_entered(area):
-	#print(area.get_groups())
-	#print("Fish?")
-	hit.emit()
 	if area.get_groups() == [&"Fish"] && fishOn == false:
 		print("Fish On!")
 		fishOn = true
 		area.queue_free()
+	elif area.get_groups()== [&"Barrel"]:
+		print("Everything Changed when the Barrels attacked")
+		fishOn = false
+		area.queue_free()
+		hit.emit()
 	else:
-		print("terror on fishing")
-	
-	
+		print("Nothing")
+
+
+

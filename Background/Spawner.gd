@@ -15,6 +15,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func spawnEntity(entity):
+	if (randf_range(1,100) < 50):
+		entity.position.x = 0 #-(screen_size.x)/2 #randf_range(-500,500)
+	else:
+		entity.position.x = screen_size.x
+	entity.position.y = randf_range(250,screen_size.y - 100) #randf_range(-500,500)
+	add_child(entity)
 
 
 func _on_timer_timeout():
@@ -22,8 +30,6 @@ func _on_timer_timeout():
 	var barrel = barrelObject.instantiate()
 	barrel.position.x = randf()
 	if (randf_range(1,100) < 50):
-		fish.position.x = 0 #-(screen_size.x)/2 #randf_range(-500,500)
+		spawnEntity(barrel)
 	else:
-		fish.position.x = screen_size.x
-	fish.position.y = randf_range(250,screen_size.y - 100) #randf_range(-500,500)
-	add_child(fish)
+		spawnEntity(fish)
